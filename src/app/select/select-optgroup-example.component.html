@@ -1,0 +1,24 @@
+<h4>js framework</h4>
+<mat-form-field  class="select-size" appearance="fill">
+  <mat-label>choose</mat-label>
+  <select class="select-size" matNativeControl>
+      <option value="Angular">Angular</option>
+      <option value="React">React</option>
+      <option value="Vue">Vue</option>
+  </select>
+</mat-form-field>
+
+<h4>frameworkVersion:</h4>
+<mat-form-field class="select-size" appearance="fill">
+  <mat-label>Version</mat-label>
+  <mat-select [formControl]="versionControl">
+    <mat-option>-- None --</mat-option>
+    <mat-optgroup *ngFor="let group of versionGroups" [label]="group.name"
+                  [disabled]="group.disabled">
+      <mat-option *ngFor="let version of group.version" [value]="version.value">
+        {{version.viewValue}}
+      </mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field>
+

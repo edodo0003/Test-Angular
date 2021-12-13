@@ -1,0 +1,19 @@
+
+<div class="form-rfas">
+    <h2>hobbies</h2>
+    <div class="input-row" *ngFor="let hobby of hobbiesArray.controls; index as idx; last as isLast">
+        <!-- по непонятной мне причине происходит ошибка в шаблоне , 
+            возможно из за конфликтов с matInput (это как вариант)
+            -->
+        <!-- <mat-form-field> -->
+            <!-- <input matInput [formControl]="hobbiesArray"> -->
+            <!-- <mat-error *ngIf="hobby.errors?.required">Please enter a hobby</mat-error> -->
+        <!-- </mat-form-field> -->
+        <button mat-icon-button color="warn" *ngIf="hobbiesArray.length > 1" (click)="removeInputControl(idx)">
+            <mat-icon>remove_circle</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" *ngIf="isLast" (click)="addInputControl()">
+            <mat-icon>add_circle</mat-icon>
+        </button>
+    </div>
+
